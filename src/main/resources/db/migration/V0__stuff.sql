@@ -1,0 +1,6 @@
+
+CREATE TABLE IF NOT EXISTS stuff
+(
+  id TEXT PRIMARY KEY,
+  updated BOOLEAN NOT NULL
+);
