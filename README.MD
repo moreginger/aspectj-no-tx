@@ -21,6 +21,7 @@ Note that to avoid the test execution order changing, `TestPrep` has been rigged
 
 - Issue only occurs if build.gradle.kts contains `exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL`
 - Issue only occurs if `TestTransaction` has a `@TestPropertySource`
+- If a debug point is added to `Service2` before throwing the exception, it can be observed that the update is already visible in the database (i.e. outside of the supposed transaction).
 
 ## Environment
 
