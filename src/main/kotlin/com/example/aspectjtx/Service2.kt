@@ -1,15 +1,15 @@
 package com.example.aspectjtx
 
-import org.jooq.DSLContext
+import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class Service2(val dslContext: DSLContext) {
+class Service2(val jdbcTemplate: JdbcTemplate) {
 
     @Transactional
     fun update() {
-        dslContext.query("UPDATE stuff SET updated = true").execute()
+        jdbcTemplate.execute("UPDATE stuff SET updated = true")
         // Throw an exception, as this is transactional the above change shouldn't be committed.
         throw RuntimeException("oh no")
     }

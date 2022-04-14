@@ -21,12 +21,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.aspectj:aspectjrt:1.9.9")
-    aspect("org.springframework:spring-aspects")
-
-    implementation("org.jooq:jooq:3.16.2")
-    implementation("org.jooq:jooq-kotlin:3.16.2")
     implementation("org.flywaydb:flyway-core:8.4.2")
     implementation("org.postgresql:postgresql")
+
+    aspect("org.springframework:spring-aspects")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
