@@ -19,6 +19,9 @@ Note that to avoid the test execution order changing, `TestPrep` has been rigged
 
 ## Observations
 
+- Issue does not occur using standard (non-AspectJ) Spring transactions e.g.
+  - In `build.gradle.kts` comment out `id("io.freefair.aspectj.post-compile-weaving") version "6.4.1"` and `aspect("org.springframework:spring-aspects")`
+  - In `AspectjTxApplication.kt` change `@EnableTransactionManagement(mode = AdviceMode.ASPECTJ)` to `@EnableTransactionManagement`
 - Issue only occurs if `TestTransaction` has a `@TestPropertySource`
 - If a debug point is added to `Service2` before throwing the exception, it can be observed that the update is already visible in the database (i.e. outside of the supposed transaction).
 
