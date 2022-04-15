@@ -15,16 +15,16 @@ class TestTransaction(@Autowired val jdbcTemplate: JdbcTemplate, @Autowired val 
     @Test
     fun testTransaction() {
         jdbcTemplate.execute("DELETE FROM stuff")
-        jdbcTemplate.execute("INSERT INTO stuff (id, updated) VALUES ('thestuff', false)")
+        jdbcTemplate.execute("INSERT INTO stuff (id, updated) VALUES (11, false)")
         try {
             service.update()
             Assertions.fail("Should throw")
         } catch (e: Exception) {
             // Expected
         }
-        val mapper = RowMapper<Pair<String, Boolean>> { rs, rn -> Pair(rs.getString("id"), rs.getBoolean("updated")) }
+        val mapper = RowMapper<Pair<Int, Boolean>> { rs, rn -> Pair(rs.getInt("id"), rs.getBoolean("updated")) }
         val theStuff = jdbcTemplate.queryForObject("SELECT * FROM stuff", mapper)!!
-        Assertions.assertEquals("thestuff", theStuff.first)
+        Assertions.assertEquals(11, theStuff.first)
         Assertions.assertEquals(false, theStuff.second, "The 'updated' field should not have been updated.")
     }
 

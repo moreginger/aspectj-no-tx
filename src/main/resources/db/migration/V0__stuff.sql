@@ -1,6 +1,6 @@
 
 CREATE TABLE IF NOT EXISTS stuff
 (
-  id TEXT PRIMARY KEY,
+  id INT PRIMARY KEY,
   updated BOOLEAN NOT NULL
 );

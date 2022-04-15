@@ -23,7 +23,7 @@ dependencies {
     implementation("org.aspectj:aspectjrt:1.9.9.1")
     implementation("org.aspectj:aspectjweaver:1.9.9.1")
     implementation("org.flywaydb:flyway-core:8.4.2")
-    implementation("org.postgresql:postgresql")
+    runtimeOnly("com.h2database:h2")
 
     aspect("org.springframework:spring-aspects")
 
