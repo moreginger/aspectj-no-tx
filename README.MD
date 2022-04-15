@@ -2,12 +2,6 @@
 
 See https://stackoverflow.com/questions/71855704/why-is-spring-transactional-unreliable-with-aspectj
 
-## DB setup
-
-Assumes a postgresql running on localhost with credentials postgres/password.
-
-e.g. `docker run --rm -d -p 5432:5432 -e POSTGRES_PASSWORD=password --name=postgres postgres:12.6`
-
 ## Instructions
 
 There are two test classes.
